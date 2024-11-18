@@ -5,7 +5,7 @@
 // let request: 'pending'| 'success'| 'failed' = 'pending'
 // request = 'pending'
 
-// let cost : number| string = 100 
+// let cost : number| string = 100
 
 // let books = ['GST102', 'GST104','MTH101']
 // let foundBook:string | undefined
@@ -14,7 +14,7 @@
 //     foundBook= book
 //     break;
 //    }
-    
+
 // }
 // let pen = {title: 'leo smart', cost: 50}
 // let book = {title: 'tweenty leaves'}
@@ -53,7 +53,7 @@
 // function createStudent(student: {id:number; name:string}) {
 //     console.log(`hello ${student.name} !!`)
 // }
-// const newStudent= {id: 345, name:"collins"} 
+// const newStudent= {id: 345, name:"collins"}
 // createStudent(newStudent)
 // createStudent({id:856, name: `mathew`})
 
@@ -70,23 +70,63 @@
 //type aliases
 // type user = {id:number;name:string;isActive:boolean}
 // const chike:user = {id:123, name:`chike`, isActive:false}
-type staff = manager | employee
-type employee = {id:number;name:string;department:string}
-type manager = {id:number;name:string;employees:employee[]}
+// type staff = manager | employee
+// type employee = {id:number;name:string;department:string}
+// type manager = {id:number;name:string;employees:employee[]}
 
-let chike:employee = {id:123, name:`chike`, department:`customer service`}
-let fawas:employee = {id:123, name:`fawas`, department:`customer representative`}
-let nzube:manager = {id:123, name:`nzube`, employees:[chike, fawas]}
+// let chike:employee = {id:123, name:`chike`, department:`customer service`}
+// let fawas:employee = {id:123, name:`fawas`, department:`customer representative`}
+// let nzube:manager = {id:123, name:`nzube`, employees:[chike, fawas]}
 
-function printStaffDetails(staff:staff){
-    if(`employees` in staff){
-        console.log(`${staff.name} is a manager with ${staff.employees.length} employees`)
-    }
-    else{
-        console.log(`${staff.name} is a employee in ${staff.department} department`)
-    }
-}
-printStaffDetails(chike)
-//  console.log(staffDetails)
+// function printStaffDetails(staff:staff){
+//     if(`employees` in staff){
+//         console.log(`${staff.name} is a manager with ${staff.employees.length} employees`)
+//     }
+//     else{
+//         console.log(`${staff.name} is a employee in ${staff.department} department`)
+//     }
+// }
 
+// printStaffDetails(chike)
+
+type Book = {
+  id: number;
+  title: string;
+  price: number;
+  inStore?: boolean;
+  printTitle(): void;
+  printPrice(message: string): void;
+  printInstore:()=>string
+};
+type discountedBook = Book & { discount: number };
+
+const book1: Book = {
+  id: 132,
+  title: "book1",
+  price: 35,
+  inStore:false,
+  printTitle() {
+    console.log(this.title);
+  },
+  printPrice(message) {
+    console.log(`${message} $${this.price}`);
+  },
+  printInstore:()=>{
+    return book1.inStore? `${book1.title} is in store`: `${book1.title} is not in store`
+  }
+};
+// const book2: Book = { id: 132, title: "book2", price: 25, inStore: true };
+// const book3: discountedBook = {
+//   id: 132,
+//   title: "book3",
+//   price: 37,
+//   discount: 0.55,
+// };
+// console.log(book1);
+// console.log(book2);
+// console.log(book3);
+book1.printTitle();
+book1.printPrice("book1 price is");
+const result = book1.printInstore()
+console.log(result);
 
