@@ -89,32 +89,32 @@
 
 // printStaffDetails(chike)
 
-type Book = {
-  id: number;
-  title: string;
-  price: number;
-  inStore?: boolean;
-  printTitle(): void;
-  printPrice(message: string): void;
-  printInstore:()=>string
-};
-type discountedBook = Book & { discount: number };
+// type Book = {
+//   id: number;
+//   title: string;
+//   price: number;
+//   inStore?: boolean;
+//   printTitle(): void;
+//   printPrice(message: string): void;
+//   printInstore:()=>string
+// };
+// type discountedBook = Book & { discount: number };
 
-const book1: Book = {
-  id: 132,
-  title: "book1",
-  price: 35,
-  inStore:false,
-  printTitle() {
-    console.log(this.title);
-  },
-  printPrice(message) {
-    console.log(`${message} $${this.price}`);
-  },
-  printInstore:()=>{
-    return book1.inStore? `${book1.title} is in store`: `${book1.title} is not in store`
-  }
-};
+// const book1: Book = {
+//   id: 132,
+//   title: "book1",
+//   price: 35,
+//   inStore:false,
+//   printTitle() {
+//     console.log(this.title);
+//   },
+//   printPrice(message) {
+//     console.log(`${message} $${this.price}`);
+//   },
+//   printInstore:()=>{
+//     return book1.inStore? `${book1.title} is in store`: `${book1.title} is not in store`
+//   }
+// };
 // const book2: Book = { id: 132, title: "book2", price: 25, inStore: true };
 // const book3: discountedBook = {
 //   id: 132,
@@ -125,8 +125,74 @@ const book1: Book = {
 // console.log(book1);
 // console.log(book2);
 // console.log(book3);
-book1.printTitle();
-book1.printPrice("book1 price is");
-const result = book1.printInstore()
-console.log(result);
+// book1.printTitle();
+// book1.printPrice("book1 price is");
+// const result = book1.printInstore()
+
+//interface
+// interface Computer{
+//   id:number;
+//   brand:string;
+//   ram:number;
+//   ramUpgrade(amount:number):number;
+//   storage?:number;
+// }
+
+// let laptop:Computer={
+//   id:123,
+//   brand:`hp`,
+//   ram:4,
+//   ramUpgrade(amount){
+//     return this.ram + amount
+//   }
+// }
+// laptop.storage = 256
+// console.log(laptop.ramUpgrade(4));
+
+//extend interface//
+
+// interface person{
+//   name:string;
+//   address:string;
+// }
+// interface person{
+//   age:number
+// }
+// interface car{
+//   brand:string;
+//   carDetails():void;
+// }
+
+// interface carOwn extends person, car  {
+
+// }
+// const person:person = {
+//   name: `vivian`,
+//   address: `lokoja, kongi`,
+//   age: 25
+// }
+// const person2: carOwn = {
+//   name: `fawas`,
+//   address: `ikeja, lagos`,
+//   age:37,
+//   brand:`toyota`,
+//   carDetails(){},
+// }
+
+// function personalDetails(){
+//   let random = Math.random()
+//   console.log(random)
+//   if(random < 0.5){
+//     return person
+//   // console.log(person)
+//   }
+//   else{
+//     return person2
+// // console.log(person2);
+//   }
+// }
+
+// const identity: person|carOwn = personalDetails()
+// console.log(identity);
+// console.log(person2);
 
