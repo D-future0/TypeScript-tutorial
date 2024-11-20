@@ -196,3 +196,155 @@
 // console.log(identity);
 // console.log(person2);
 
+// ReadOnly//
+
+// let date: readonly [number,number,number,] = [20,11,2024]
+// date.push(55)
+// console.log(date)
+
+//enum
+
+// enum personRole{
+//     admin=`admin`,
+//     manager=`manager`,
+//     employee=`employee`,
+// }
+
+// interface user{
+//     id:number,
+//     name:string,
+//     role:personRole,
+//     email:string
+// }
+// let user:user = {
+//     id:123,
+//     name:`mike`,
+//     role:personRole.manager,
+//     email:`mike123@gmail.com`
+// }
+// console.log(user)
+
+// type assertion 
+
+// type Bird = {
+//     name:string
+// }
+// retrieving data from DB
+// let birdString = `{"name":"Pigeon"}`
+// let birdObject = JSON.parse(birdString)
+// let bird = birdObject as Bird 
+
+// console.log(bird)
+
+// unknown //
+
+// function retrieveDate(){
+//     let random = Math.random()
+//     if(random > 0.33){
+//         throw new Error(`unable to retrieve data`)
+//     }else{
+//         throw `Data sucessfully retrieved`
+//     }
+// }
+
+// try {
+//     retrieveDate()
+// } catch (error) {
+//     if( error instanceof Error){
+//         console.log(error.message)
+//     }else{
+//         console.log(error)   
+//     }
+// }
+
+
+// type guard (typeOf)
+
+// type valueType = string|number|boolean
+
+// let value:valueType
+// let random = Math.random()
+// value = random <0.25? `you win` : random <0.4? 404 : false
+
+// function checkValue(value:valueType):void{
+//     if(typeof value === 'string'){
+//         console.log(value.toUpperCase())
+//         return;
+//     }
+//     if(typeof value === 'number'){
+//         console.log(value.toFixed(2))
+//         return;
+//     }
+//     console.log(`boolean : ${value}`)
+// }
+// checkValue(value)
+
+// type guard (equality)
+
+// type Dog = {type:'dog'; name:string; bark: ()=> void}
+// type Cat = {type:'cat'; name:string; meow:()=> void}
+// type animal = Dog|Cat
+
+// function animalSound(animal:animal){
+//     if(animal.type === 'dog'){
+//         animal.bark()
+//     }else{
+//         animal.meow()
+//     }
+// }
+// type guard (in)
+
+// function animalSound(animal:animal){
+//     if('bark' in animal){
+//         animal.bark()
+//     }else{
+//         animal.meow()
+//     }
+// }
+
+// // discriminated union
+
+// type Increment = {
+//     type:`increase`;
+//     name:string;
+//     salary:number
+// }
+// type decrement = {
+//     type:`decrease`;
+//     name:string;
+//     salary:number
+// }
+
+// type Action = Increment|decrement;
+
+// function reducer(bonus:number, action:Action){
+//     switch(action.type){
+//         case `increase`:
+//         return bonus + action.salary;
+//         case `decrease`:
+//         return bonus - action.salary;
+//         default:
+//             const unexpectedAction:never = action
+//             throw new Error (`unexpected action : ${unexpectedAction}`)
+//     }
+// }
+
+//generic function
+
+// function generatArray<T>(length:number, value:T):Array<T>{
+//     let result:T[] = []
+//     result = Array(length).fill(value)
+//     return result
+// }
+
+// let stringArray = generatArray<string>(3, `hello`)
+// let numberArray = generatArray<number>(6, 999)
+// console.log(stringArray)
+// console.log(numberArray)
+
+// function temp<T extends number|string>(value:T):T{
+//     console.log(value)
+//     return value
+// }
+// temp(`hello`)
+
