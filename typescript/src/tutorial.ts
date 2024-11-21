@@ -348,3 +348,27 @@
 // }
 // temp(`hello`)
 
+// type Employee = {
+//     name:string;
+//     department:string
+// }
+// type Manager = {
+//     name:string;
+//     employees:number
+// } 
+// const person:Manager = {
+//     name:`collins`,
+//     employees:3
+// }
+// const person2:Employee = {
+//     name:`ifechukwu`,
+//     department:'IT'
+// }
+// function printValue<T extends {name:string}>(person:T):void{
+
+//     console.log(person.name)
+// }
+//  printValue(person)
+
+const url = `https://www.course-api.com/react-tours-project`
+
