@@ -370,34 +370,56 @@
 // }
 //  printValue(person)
 
-const url = `https://www.course-api.com/react-tours-project`
-type Tour = {
-    id:string;
-    name:string;
-    info:string;
-    image:string;
-    price:string;
-}
+//validate data with zod
+// import {z} from 'zod'
+// const url = `https://www.course-api.com/react-tours-project`
 
-async function fetchData(url:string): Promise<Tour[]>{
-    try {
-        const response = await fetch(url)
-        if(!response.ok){
-            throw new Error(`HTTP error! status : ${response.status}`)
-        }
-        const data:Tour[] = await response.json()
+// const tourSchema = z.object({
+//     id:z.string(),
+//     name:z.string(),
+//     info:z.string(),
+//     image:z.string(),
+//     price:z.string(),
+// })
 
-        return data
-    } catch (error) {
-        const errMessage = error instanceof Error ? error.message : `there was an error`;
-        console.log(errMessage)
-        return []
+// type Tour = z.infer<typeof tourSchema>
+
+// async function fetchData(url:string): Promise<Tour[]>{
+//     try {
+//         const response = await fetch(url)
+//         if(!response.ok){
+//             throw new Error(`HTTP error! status : ${response.status}`)
+//         }
+//         const rawData:Tour[] = await response.json()
+//         const result = tourSchema.array().safeParse(rawData)
+//         console.log(result)
+//         if(!result.success){
+//             throw new Error(`can not fetch data : ${result.error}`)
+//         }
+
+//         return result.data
+//     } catch (error) {
+//         const errMessage = error instanceof Error ? error.message : `there was an error`;
+//         console.log(errMessage)
+//         return []
+//     }
+// }
+
+// const tour = await fetchData(url)
+// tour.map((tour)=>{
+//     // return tour.name
+//     console.log(tour.name)
+// })
+
+//classes
+class Book{
+    id:number;
+    title:string;
+    constructor(id:number, title:string){
+        this.id= id
+        this.title = title
     }
 }
 
-const tour = await fetchData(url)
-tour.map((tour)=>{
-    // return tour.name
-    console.log(tour.name)
-})
-
+const booK1 = new Book(123,`book1`)
+console.log(booK1)
