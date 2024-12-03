@@ -412,14 +412,56 @@
 // })
 
 //classes
-class Book{
-    id:number;
-    title:string;
-    constructor(id:number, title:string){
-        this.id= id
-        this.title = title
+// class Book{
+//     id:number;
+//     title:string;
+//     private checkOut: boolean = false
+//     constructor(id:number, title:string){
+//         this.id= id
+//         this.title = title
+//     }
+//     public checkedOut(){
+//         this.checkOut = this.toggleCheckOut()
+//     }
+//     isCheckOut(){
+//          return this.checkOut
+//     }
+//     private toggleCheckOut(){
+//         return !this.checkOut
+//     }
+// }
+
+// const book1 = new Book(123,`book1`)
+// const status = !book1.isCheckOut()
+// console.log(status)
+
+//getter and setter//
+// class Book{
+//     private checkOut: boolean= false
+//     constructor(public id:number, public name:string){}
+//     get info(){
+//         return `name: ${this.name}`
+//     }
+//     set isCheckedOut(checkedOut:boolean){
+//         this.checkOut = checkedOut 
+//     }
+// }
+
+// const book = new Book(8, 'Red flag')
+// book.isCheckedOut = true
+// console.log(book)
+
+//impliment//
+interface Iperson{
+    name:string,
+    age:number
+}
+class Person implements Iperson{
+    constructor(public name:string, public age:number){}
+    getInfo():void{
+        console.log(`my name is ${this.name} and i am ${this.age}years old`)
     }
 }
-
-const booK1 = new Book(123,`book1`)
-console.log(booK1)
+const person = new Person('ayo ponky', 26)
+person.getInfo()
+console.log(person)
