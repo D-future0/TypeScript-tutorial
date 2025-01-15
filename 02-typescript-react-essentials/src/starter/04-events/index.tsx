@@ -12,10 +12,11 @@ function Component() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // const formData = new FormData(e.currentTarget)
-    const formDatas = new FormData(e.target as HTMLFormElement);
-    const data = Object.fromEntries(formDatas);
+    // const formDatas = new FormData(e.target as HTMLFormElement);
+    // const data = Object.fromEntries(formDatas);
     // const text = formDatas.get("text");
-    console.log(data);
+    const info = {text, email}
+  console.log(info);
   };
 
   return (
